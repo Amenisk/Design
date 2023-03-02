@@ -1,0 +1,65 @@
+﻿<Page x:Class="Design.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Design.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthorizationPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
+                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
+            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" FontSize="32" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Bottom">Авторизация</TextBlock>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <TextBlock>Email</TextBlock>
+                <TextBox></TextBox>
+                <TextBlock>Пароль</TextBlock>
+                <TextBox></TextBox>
+                <Button Margin="30">Авторизоваться</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Margin="5">Нет аккаунта?</TextBlock>
+                <TextBlock Margin="5"><Hyperlink>регистрация для покупателя</Hyperlink> </TextBlock>
+                <TextBlock Margin="5"><Hyperlink>регистрация для продавца</Hyperlink> </TextBlock>
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Row="2" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="2" Content="Назад"></Button>
+        </Grid>
+    </Grid>
+</Page>

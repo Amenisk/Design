@@ -1,0 +1,123 @@
+﻿<Page x:Class="Design.Pages.ListOfSellApplication"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Design.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListOfSellApplication" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
+                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
+            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="120">Фото</TextBlock>
+                        <TextBlock Width="120">Название</TextBlock>
+                        <TextBlock Width="75">Количество</TextBlock>
+                        <TextBlock Width="75">Цена</TextBlock>
+                        <TextBlock Width="145">Описание</TextBlock>
+                    </StackPanel>
+                    <ListView >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="\Images\bag.jpg" Width="100" Margin="10"></Image>
+                            <TextBlock Width="110" TextWrapping="Wrap" VerticalAlignment="Center">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">7</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">2550 р.</TextBlock>
+                            <ScrollViewer>
+                                <TextBlock Width="145" FontSize="8" TextWrapping="Wrap" VerticalAlignment="Center">Вместительный и функциональный рюкзак BRAUBERG для старшеклассников и студентов. 
+                                Формоустойчивая спинка и анатомические плечевые ремни обеспечивают максимальное удобство в эксплуатации. 
+                                Отлично подойдет как для учебы, так и для активного образа жизни.</TextBlock>
+                            </ScrollViewer>
+                            <StackPanel VerticalAlignment="Center">
+                                <Button Width="110" Height="30" Margin="5" Content="Одобрить"></Button>
+                                <Button Width="110" Height="30" Margin="5" Content="Отказать"></Button>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="\Images\phone.jpg" Width="100" Margin="10"></Image>
+                            <TextBlock Width="110" TextWrapping="Wrap" VerticalAlignment="Center">Смартфон Redmi 9A</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">3</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">6700 р.</TextBlock>
+                            <ScrollViewer>
+                                <TextBlock Width="145" FontSize="8" TextWrapping="Wrap" VerticalAlignment="Center">Смартфон Xiaomi Redmi 9A – бюджетная модель, подходящая для использования мессенджеров и интернета. Благодаря процессору и 2 Гб ОЗУ повседневные задачи выполняются без задержек.
+
+Характеристики
+
+диагональ экрана: 6.53";
+разрешение экрана: 1600x720;
+оперативная память: 2 Гб;
+встроенная память: 32 Гб;
+класс SIM-карты: Nano-SIM;
+емкость аккумулятора: 5000 мАч.
+Быстрая работа
+
+Устройство работает на базе оптимизированной операционной системы. Несмотря на малый объем оперативной памяти, смартфон успешно справляется с повседневными задачами.
+
+Долгая работа без подзарядки
+
+Емкий аккумулятор держит заряд в любых климатических условиях. Смартфон быстро заряжается и даже при активном использовании надолго сохраняет заряд.
+
+Детализация изображений
+
+Устройство оснащено ярким дисплеем, сохраняющим качество картинки даже при сильных углах наклона. Высокая плотность пикселей обеспечивает хорошую детализацию изображений. 
+                                    Высокая частота обновления экрана исключает утомление глаз.</TextBlock>
+                            </ScrollViewer>
+                            <StackPanel VerticalAlignment="Center">
+                                <Button Width="110" Height="30" Margin="5" Content="Одобрить"></Button>
+                                <Button Width="110" Height="30" Margin="5" Content="Отказать"></Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="\Images\swatch.jpg" Width="100" Margin="10"></Image>
+                            <TextBlock Width="110" TextWrapping="Wrap" VerticalAlignment="Center">Умные часы</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">10</TextBlock>
+                            <TextBlock Width="75" VerticalAlignment="Center">2250 р.</TextBlock>
+                            <ScrollViewer>
+                                <TextBlock Width="145" FontSize="8" TextWrapping="Wrap" VerticalAlignment="Center">Защищенность	влагозащита
+Совместимость	
+iOS
+Мониторинг	
+измерение пульса, мониторинг сна
+Операционная система	iOS</TextBlock>
+                            </ScrollViewer>
+                            <StackPanel VerticalAlignment="Center">
+                                <Button Width="110" Height="30" Margin="5" Content="Одобрить"></Button>
+                                <Button Width="110" Height="30" Margin="5" Content="Отказать"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="2" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="2" Content="Назад"></Button>
+        </Grid>
+    </Grid>
+</Page>

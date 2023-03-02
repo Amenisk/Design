@@ -1,0 +1,88 @@
+﻿<Page x:Class="Design.Pages.SoldProductsList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Design.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SoldProductsList" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
+                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
+            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="180">Название товара</TextBlock>
+                        <TextBlock Width="120">Стоимость</TextBlock>
+                        <TextBlock Width="180">Покупатель</TextBlock>
+                        <TextBlock Width="120">Дата покупки</TextBlock>
+                    </StackPanel>
+                    <ListView >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="180" TextWrapping="Wrap">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="120">2500</TextBlock>
+                            <TextBlock Width="180">Егоров Сергей</TextBlock>
+                            <TextBlock Width="120">21.01.2023</TextBlock>
+                            <Button Width="130" Height="30" Margin="5" FontSize="12" Content="Страница товара"></Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="180" TextWrapping="Wrap">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="120">2500</TextBlock>
+                            <TextBlock Width="180">Егоров Сергей</TextBlock>
+                            <TextBlock Width="120">21.01.2023</TextBlock>
+                            <Button Width="130" Height="30" Margin="5" FontSize="12" Content="Страница товара"></Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="180" TextWrapping="Wrap">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="120">2500</TextBlock>
+                            <TextBlock Width="180">Егоров Сергей</TextBlock>
+                            <TextBlock Width="120">21.01.2023</TextBlock>
+                            <Button Width="130" Height="30" Margin="5" FontSize="12" Content="Страница товара"></Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="180" TextWrapping="Wrap">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="120">2500</TextBlock>
+                            <TextBlock Width="180">Егоров Сергей</TextBlock>
+                            <TextBlock Width="120">21.01.2023</TextBlock>
+                            <Button Width="130" Height="30" Margin="5" FontSize="12" Content="Страница товара"></Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="180" TextWrapping="Wrap">Рюкзак универсальный</TextBlock>
+                            <TextBlock Width="120">2500</TextBlock>
+                            <TextBlock Width="180">Егоров Сергей</TextBlock>
+                            <TextBlock Width="120">21.01.2023</TextBlock>
+                            <Button Width="130" Height="30" Margin="5" FontSize="12" Content="Страница товара"></Button>
+                        </StackPanel>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="2" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="2" Content="Назад"></Button>
+        </Grid>
+    </Grid>
+</Page>
