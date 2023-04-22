@@ -9,25 +9,7 @@
       Title="MakeOrderPage" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Cursor="">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -44,61 +26,48 @@
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="Blue">Сумма заказа:</TextBlock>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Foreground="Blue">9470 р.</TextBlock>
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock x:Name="tbCost"></TextBlock>
+                <TextBlock Margin="5 0 0 0"> р.</TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                 <TextBlock Foreground="Blue" HorizontalAlignment="Center">Точка выдачи заказа</TextBlock>
-                <ComboBox Margin="5">
-                    <TextBlock >Байчорова Улица, 27, Карачаевский Район</TextBlock>
+                <ComboBox x:Name="cbIssuePoints" Margin="5">
+                    <TextBlock>Байчорова Улица, 27, Карачаевский Район</TextBlock>
                     <TextBlock>Дзержинского Улица, 23, Отрадненский Район</TextBlock>
                     <TextBlock>Набережная Улица, 11, Аларский Район</TextBlock>
                     <TextBlock>Фрунзе Улица, 32, Горнозаводский Район</TextBlock>
                     <TextBlock>Школьная Улица, 21, Байкаловский Район</TextBlock>
                 </ComboBox>
-                <Button Margin="10">Оформить заказ</Button>
+                <Button Margin="10" Click="MakeOrder">Оформить заказ</Button>
+                <Button Margin="15" Click="RemoveFromBusket">Убрать из корзины</Button>
             </StackPanel>
             <StackPanel></StackPanel>
-            <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
-                <ScrollViewer>
-                    <StackPanel>
-                        <TextBlock Foreground="Blue" FontSize="32" HorizontalAlignment="Center">Корзина</TextBlock>
-                        <ListView>
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <UniformGrid Columns="3"/>
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                            <StackPanel>
-                                <Image Source="/Images/swatch.jpg" Height="170"/>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="Умные часы"/></TextBlock>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="1990 р."/></TextBlock>
-                                <Button Margin="10" FontSize="8">Убрать из корзины</Button>
-                            </StackPanel>
-                            <StackPanel>
-                                <Image Source="/Images/phone.jpg" Height="170"/>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="Смартфон Redmi 9A"/></TextBlock>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="5090 р."/></TextBlock>
-                                <Button Margin="10" FontSize="8">Убрать из корзины</Button>
-                            </StackPanel>
-                            <StackPanel>
-                                <Image Source="/Images/bag.jpg" Height="170"/>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="Рюкзак универсальный"/></TextBlock>
-                                <TextBlock HorizontalAlignment="Center"><Run Text="2390 р."/></TextBlock>
-                                <Button Margin="10" FontSize="8">Убрать из корзины</Button>
-                            </StackPanel>
-                        </ListView>
-                    </StackPanel>
-                </ScrollViewer>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
+
+            <ScrollViewer Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+                <StackPanel>
+                    <TextBlock Foreground="Blue" FontSize="32" HorizontalAlignment="Center">Корзина</TextBlock>
+                    <ListView x:Name="lvBasket" MouseDoubleClick="GoToProductPage">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="3"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image Source="{Binding Photo}" Height="170"/>
+                                    <TextBlock Text="{Binding Name}" Width="130" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Price}" ></TextBlock>
+                                        <TextBlock Margin="5 0 0 0"> р.</TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

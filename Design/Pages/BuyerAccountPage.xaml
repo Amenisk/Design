@@ -9,24 +9,6 @@
       Title="BuyerAccountPage" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -39,47 +21,39 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="1" Grid.Row="1" CornerRadius="6" BorderBrush="Blue" Background="LightBlue" BorderThickness="2" DockPanel.Dock="Top">
-            <StackPanel>
+                <StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Margin="5" FontSize="24">Email:</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">Полное имя:</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">Телефон:</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">Пароль:</TextBlock>
-                           
+                        <StackPanel>
+                            <TextBlock Margin="10" FontSize="24">Email:</TextBlock>
+                            <TextBlock Margin="10" FontSize="24">Полное имя:</TextBlock>
+                            <TextBlock Margin="10" FontSize="24">Телефон:</TextBlock>
+                            <TextBlock Margin="10" FontSize="24">Пароль:</TextBlock>
+
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <TextBlock Margin="5" FontSize="24">dastop@mail.ru</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">Гулигин Илья</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">88005553535</TextBlock>
-                            <TextBlock Margin="5" FontSize="24">******</TextBlock>
+                            <TextBox x:Name="tbEmail" Margin="12" FontSize="18" IsEnabled="False">шшшшшшшшшшшшшшшшшшшшшшшшшшшшшш</TextBox>
+                            <TextBox x:Name="tbFullName" Margin="12" FontSize="18" IsEnabled="False">Гулигин Илья</TextBox>
+                            <TextBox x:Name="tbPhoneNumber" Margin="5" FontSize="24" IsEnabled="False">88005553535</TextBox>
+                            <TextBox x:Name="tbPassword" Margin="5" FontSize="24" IsEnabled="False">******</TextBox>
                         </StackPanel>
                     </Grid>
-                
-            </StackPanel>
+
+                </StackPanel>
             </Border>
             <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="5">Изменить данные</Button>
-                <Button Margin="5">Сохранить изменения</Button>
+                <Button Margin="5" Click="ChangeData">Изменить данные</Button>
+                <Button Margin="5" Click="Button_Click_2">Сохранить изменения</Button>
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
-                <Button Margin="5">Выйти с аккаунта</Button>
+                <Button Margin="5" Click="Button_Click">Выйти с аккаунта</Button>
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
-                <Button Margin="5">История заказов</Button>
+                <Button Margin="5" Click="GoToOrders">История заказов</Button>
             </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

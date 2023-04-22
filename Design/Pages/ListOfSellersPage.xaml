@@ -9,24 +9,6 @@
       Title="ListOfSellersPage" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -41,54 +23,26 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Width="180" Margin="10 0 0 0">Полное имя</TextBlock>
                             <TextBlock Width="180">Email</TextBlock>
-                            <TextBlock Width="180">Телефон</TextBlock>
+                            <TextBlock Width="120">Телефон</TextBlock>
+                            <TextBlock Width="140">Паспортные данные</TextBlock>
+                            <TextBlock Width="140">ИНН</TextBlock>
                         </StackPanel>
-                        <ListView >
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="170">Зубенко Михаил</TextBlock>
-                                <TextBlock Width="180">asijgh@mail.ru</TextBlock>
-                                <TextBlock Width="180">89527481549</TextBlock>
-                                <Button Width="180" Height="30" Margin="5" Content="Профиль"></Button>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="170">Андреев Михаил</TextBlock>
-                                <TextBlock Width="180">slaterfas@gmail.com</TextBlock>
-                                <TextBlock Width="180">89649375629</TextBlock>
-                                <Button Width="180" Height="30" Margin="5" Content="Профиль"></Button>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="170">Никифоренко Алиса</TextBlock>
-                                <TextBlock Width="180">alisa@mail.ru</TextBlock>
-                                <TextBlock Width="180">89296784671</TextBlock>
-                                <Button Width="180" Height="30" Margin="5" Content="Профиль"></Button>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="170">Королёва Анна</TextBlock>
-                                <TextBlock Width="180">horosoku@yandex.ru</TextBlock>
-                                <TextBlock Width="180">89527481549</TextBlock>
-                                <Button Width="180" Height="30" Margin="5" Content="Профиль"></Button>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="170">Танков Вячеслав</TextBlock>
-                                <TextBlock Width="180">rutankus@mail.ru</TextBlock>
-                                <TextBlock Width="180">89392063856</TextBlock>
-                                <Button Width="180" Height="30" Margin="5" Content="Профиль"></Button>
-                            </StackPanel>
+                        <ListView x:Name="lvAllSellers">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding FullName}" Width="180" TextWrapping="Wrap"></TextBlock>
+                                        <TextBlock Text="{Binding Email}" Width="180"></TextBlock>
+                                        <TextBlock Text="{Binding PhoneNumber}" Width="120"></TextBlock>
+                                        <TextBlock Text="{Binding PassportData}" Width="140"></TextBlock>
+                                        <TextBlock Text="{Binding ITN}" Width="120"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
                         </ListView>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

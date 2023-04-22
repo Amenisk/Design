@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Design"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Closing="Window_Closing"
+        Title="KazonBerries Express" Height="550" Width="800" Icon="/logo.png">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Background="Blue">
+        <Grid Background="Blue" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -23,69 +24,19 @@
                 <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
                 <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
             </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
+            <Button Grid.Column="1" Content="Войти" Margin="5" Click="Button_Click"></Button>
+            <Button Grid.Column="2" Content="Корзина" Margin="5" Click="GoToBasket"></Button>
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel>
-                <Image Source="\Images\swatch.jpg"></Image>
-            </StackPanel>
-            <ScrollViewer Grid.Column="1" HorizontalAlignment="Center">
-                <StackPanel Grid.Column="1">
-                    <TextBlock Foreground="Blue" FontSize="22" HorizontalAlignment="Center">Смарт-часы Smart Watch X7 Pro, X8 Pro</TextBlock>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">Продавец:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">Инокентий Павлов</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">В наличии:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">77</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">Цена:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">2500 р.</TextBlock>
-                    </StackPanel>
-                    <Button Width="170">Добавить в корзину</Button>
-                    <TextBlock Foreground="Blue" FontSize="18">Описание:</TextBlock>
-                    <TextBlock TextWrapping="Wrap" Margin="5">
-                        Полная синхронизация с телефоном. На часы поступают уведомления с телефона (без возможности ответа на сообщения с часов). Возможно переключение музыки с часов
-                        12 режимов для спорта и активности, измерение давления
-                        Время автономной работы без подзарядки 72 часа
-                        Часы подойдут для Android и iPhone (Android 5.0 и выше, iOS 10.0 и выше)
-                        Диагональ экрана 1,75 дюйма. Мониторинг качества сна
-                        Защита от попадания пыли, влаги (плавать в часах не рекомендуется), защита от царапин
-                        Инструкция по подключению часов во вкладке "Инструкция"
-                        В часах есть калькулятор, пульсометр, данные погоде и прочие полезные функции
-                        Кабель для зарядки идет в комплекте. Зарядка магнитная, в форме таблетки
-                        Встроенный GPS, возможность ответа на звонки, благодаря встроенному динамику и микрофону.
-                    </TextBlock>
-                    <TextBox TextWrapping="Wrap"></TextBox>
-                    <Button Width="150">Оставить отзыв</Button>
-                    <TextBlock Foreground="Blue" FontSize="28" HorizontalAlignment="Center">Отзывы</TextBlock>
-                    <ListView>
-                        <StackPanel Margin="10">
-                            <TextBlock>Валентина Николаевна</TextBlock>
-                            <Border BorderBrush="Blue" BorderThickness="2">
-                                <TextBlock TextWrapping="Wrap">
-                                    Очень понравились эти часы. Стильные и хорошо сидят на руке.
-                                </TextBlock>
-                            </Border>
-                        </StackPanel>
-                    </ListView>
-                </StackPanel>
-            </ScrollViewer>
+        <Grid Grid.ColumnSpan="2" Margin="10,5,2,34" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
-        <Grid Grid.Row="2" Background="Blue">
+        <Grid Grid.Row="2" Background="Blue" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition Width="3*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
+            <Button x:Name="btnBack" Margin="2" Content="Назад" Click="GoBack"></Button>
         </Grid>
     </Grid>
 </Window>

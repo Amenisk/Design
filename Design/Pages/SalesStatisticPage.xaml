@@ -9,24 +9,6 @@
       Title="SalesStatisticPage" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -43,31 +25,26 @@
             <Border Grid.Row="1" CornerRadius="6" BorderBrush="Blue" Background="LightBlue" BorderThickness="2" VerticalAlignment="Center">
                 <StackPanel>
                     <TextBlock Foreground="Blue" FontSize="32" HorizontalAlignment="Center">Сумма продаж:</TextBlock>
-                    <TextBlock Foreground="Blue" FontSize="32" HorizontalAlignment="Center">32000 р.</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="150">
+                        <TextBlock x:Name="tbSaleSum" Foreground="Blue" FontSize="32"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" Foreground="Blue" FontSize="32"> р.</TextBlock>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Foreground="Blue" FontSize="26" TextAlignment="Center">Количество проданного товара</TextBlock>
                 <Border CornerRadius="6" BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Center" Margin="5">
-                    <TextBlock Foreground="Blue" FontSize="26" HorizontalAlignment="Center" Margin="5">31</TextBlock>
+                    <TextBlock x:Name="tbSoldProductsCount" Foreground="Blue" FontSize="26" HorizontalAlignment="Center" Margin="5"></TextBlock>
                 </Border>
-                <Button Margin="50 0 50 0">Список</Button>
+                <Button Margin="50 0 50 0" Click="GoToSoldProducts">Список</Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Foreground="Blue" FontSize="26" TextAlignment="Center">Количество непроданного товара</TextBlock>
                 <Border CornerRadius="6" BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Center" Margin="5">
-                    <TextBlock Foreground="Blue" FontSize="26" HorizontalAlignment="Center" Margin="5">13</TextBlock>
+                    <TextBlock x:Name="tbUnsoldProductList" Foreground="Blue" FontSize="26" HorizontalAlignment="Center" Margin="5"></TextBlock>
                 </Border>
-                <Button Margin="50 0 50 0">Список</Button>
+                <Button Margin="50 0 50 0" Click="GoToUnsoldProductList">Список</Button>
             </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

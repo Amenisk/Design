@@ -9,24 +9,6 @@
       Title="AuthorizationPage" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -41,25 +23,16 @@
             <TextBlock Grid.Column="1" FontSize="32" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Bottom">Авторизация</TextBlock>
             <StackPanel Grid.Column="1" Grid.Row="1">
                 <TextBlock>Email</TextBlock>
-                <TextBox></TextBox>
+                <TextBox x:Name="tbEmail"></TextBox>
                 <TextBlock>Пароль</TextBlock>
-                <TextBox></TextBox>
-                <Button Margin="30">Авторизоваться</Button>
+                <PasswordBox x:Name="tbPassword"></PasswordBox>
+                <Button Margin="30" Click="Button_Click">Авторизоваться</Button>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Margin="5">Нет аккаунта?</TextBlock>
-                <TextBlock Margin="5"><Hyperlink>регистрация для покупателя</Hyperlink> </TextBlock>
-                <TextBlock Margin="5"><Hyperlink>регистрация для продавца</Hyperlink> </TextBlock>
+                <TextBlock Margin="5"><Hyperlink Click="GoToBuyerRegistration">регистрация для покупателя</Hyperlink></TextBlock>
+                <TextBlock Margin="5"><Hyperlink Click="GoToSellerRegistration">регистрация для продавца</Hyperlink></TextBlock>
             </StackPanel>
-            
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

@@ -9,98 +9,34 @@
       Title="ListOfOrders" Background="White">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="120">Номер заказа</TextBlock>
-                        <TextBlock Width="120">Количество товаров</TextBlock>
-                        <TextBlock Width="120">Стоимость товаров</TextBlock>
-                        <TextBlock Width="120">Дата заказа</TextBlock>
-                        <TextBlock Width="120">Статус заказа</TextBlock>
+                        <TextBlock Width="140" HorizontalAlignment="Center">Номер заказа</TextBlock>
+                        <TextBlock Width="140" HorizontalAlignment="Center">Количество товаров</TextBlock>
+                        <TextBlock Width="140" HorizontalAlignment="Center">Стоимость товаров</TextBlock>
+                        <TextBlock Width="140" HorizontalAlignment="Center">Дата заказа</TextBlock>
+                        <TextBlock Width="140" HorizontalAlignment="Center">Статус заказа</TextBlock>
                     </StackPanel>
-                    <ListView >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000001</TextBlock>
-                            <TextBlock Width="120">3</TextBlock>
-                            <TextBlock Width="120">780</TextBlock>
-                            <TextBlock Width="120">12.01.2023</TextBlock>
-                            <TextBlock Width="120">Получен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000002</TextBlock>
-                            <TextBlock Width="120">1</TextBlock>
-                            <TextBlock Width="120">560</TextBlock>
-                            <TextBlock Width="120">14.01.2023</TextBlock>
-                            <TextBlock Width="120">Получен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000003</TextBlock>
-                            <TextBlock Width="120">7</TextBlock>
-                            <TextBlock Width="120">2760</TextBlock>
-                            <TextBlock Width="120">21.01.2023</TextBlock>
-                            <TextBlock Width="120">Получен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000004</TextBlock>
-                            <TextBlock Width="120">2</TextBlock>
-                            <TextBlock Width="120">8790</TextBlock>
-                            <TextBlock Width="120">29.01.2023</TextBlock>
-                            <TextBlock Width="120">Получен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000005</TextBlock>
-                            <TextBlock Width="120">11</TextBlock>
-                            <TextBlock Width="120">5430</TextBlock>
-                            <TextBlock Width="120">12.02.2023</TextBlock>
-                            <TextBlock Width="120">Получен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="120">000006</TextBlock>
-                            <TextBlock Width="120">3</TextBlock>
-                            <TextBlock Width="120">1450</TextBlock>
-                            <TextBlock Width="120">28.01.2023</TextBlock>
-                            <TextBlock Width="120">Отправлен</TextBlock>
-                            <Button Width="110" Height="30" Margin="5" Content="Подробнее"></Button>
-                        </StackPanel>
+                    <ListView x:Name="lvOrders" MouseDoubleClick="GoToOrderPage">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding OrderNumber}" Width="140" HorizontalAlignment="Center"></TextBlock>
+                                    <TextBlock Text ="{Binding Products.Count}" Width="140" HorizontalAlignment="Center"></TextBlock>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="140">
+                                        <TextBlock Text="{Binding PurchaseCost}" ></TextBlock>
+                                        <TextBlock Margin="5 0 0 0"> р.</TextBlock>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding DateOfPurchase}" Width="140" HorizontalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="{Binding Status}" Width="140" HorizontalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
             </ScrollViewer>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

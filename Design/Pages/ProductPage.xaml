@@ -9,84 +9,53 @@
       Title="ProductPage" Background="White">
 
     <Grid Cursor="">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <Image Source="\Images\swatch.jpg"></Image>
+                <Image x:Name="iPhoto"></Image>
             </StackPanel>
             <ScrollViewer Grid.Column="1" HorizontalAlignment="Center">
                 <StackPanel Grid.Column="1">
-                    <TextBlock Foreground="Blue" FontSize="22" HorizontalAlignment="Center">Смарт-часы Smart Watch X7 Pro, X8 Pro</TextBlock>
+                    <TextBlock x:Name="tbName" Foreground="Blue" Width="320" FontSize="22" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="Blue" FontSize="18" Margin="5">Продавец:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">Инокентий Павлов</TextBlock>
+                        <TextBlock x:Name="tbSellerFullName"  Foreground="Blue" FontSize="18" Margin="5"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="Blue" FontSize="18" Margin="5">В наличии:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">77</TextBlock>
+                        <TextBlock x:Name="tbCount" Foreground="Blue" FontSize="18" Margin="5"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="Blue" FontSize="18" Margin="5">Цена:</TextBlock>
-                        <TextBlock Foreground="Blue" FontSize="18" Margin="5">2500 р.</TextBlock>
-                    </StackPanel>
-                    <Button Width="170">Добавить в корзину</Button>
-                    <TextBlock Foreground="Blue" FontSize="18">Описание:</TextBlock>
-                    <TextBlock TextWrapping="Wrap" Margin="5">
-                        Полная синхронизация с телефоном. На часы поступают уведомления с телефона (без возможности ответа на сообщения с часов). Возможно переключение музыки с часов
-                        12 режимов для спорта и активности, измерение давления
-                        Время автономной работы без подзарядки 72 часа
-                        Часы подойдут для Android и iPhone (Android 5.0 и выше, iOS 10.0 и выше)
-                        Диагональ экрана 1,75 дюйма. Мониторинг качества сна
-                        Защита от попадания пыли, влаги (плавать в часах не рекомендуется), защита от царапин
-                        Инструкция по подключению часов во вкладке "Инструкция"
-                        В часах есть калькулятор, пульсометр, данные погоде и прочие полезные функции
-                        Кабель для зарядки идет в комплекте. Зарядка магнитная, в форме таблетки
-                        Встроенный GPS, возможность ответа на звонки, благодаря встроенному динамику и микрофону.
-                    </TextBlock>
-                    <TextBox TextWrapping="Wrap" Margin="5"></TextBox>
-                    <Button Width="150" Margin="5" Cursor="Hand">Оставить отзыв</Button>
-                    <TextBlock Foreground="Blue" FontSize="28" HorizontalAlignment="Center">Отзывы</TextBlock>
-                    <ListView>
-                        <StackPanel Margin="10">
-                            <TextBlock Margin="5">Валентина Николаевна</TextBlock>
-                            <Border BorderBrush="Blue" BorderThickness="2" Margin="5">
-                                <TextBlock TextWrapping="Wrap">
-                                    Очень понравились эти часы. Стильные и хорошо сидят на руке.
-                                </TextBlock>
-                            </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="150" Margin="5">
+                            <TextBlock x:Name="tbPrice" Foreground="Blue" FontSize="18"></TextBlock>
+                            <TextBlock Margin="5 0 0 0" Foreground="Blue" FontSize="18"> р.</TextBlock>
                         </StackPanel>
+                    </StackPanel>
+                    <Button Width="170" Click="Button_Click">Добавить в корзину</Button>
+                    <TextBlock Foreground="Blue" FontSize="18">Описание:</TextBlock>
+                    <TextBlock x:Name="tbDescription" TextWrapping="Wrap" Margin="5">
+                    </TextBlock>
+                    <TextBox x:Name="tbReview" TextWrapping="Wrap" Margin="5"></TextBox>
+                    <Button Width="150" Margin="5" Cursor="Hand" Click="CreateReview">Оставить отзыв</Button>
+                    <TextBlock Foreground="Blue" FontSize="28" HorizontalAlignment="Center">Отзывы</TextBlock>
+                    <ListView x:Name="lvReviews">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="10">
+                                    <TextBlock Text="{Binding Reviewer.FullName}" Margin="5"></TextBlock>
+                                    <Border BorderBrush="Blue" BorderThickness="2" Margin="5">
+                                        <TextBlock Text="{Binding ReviewText}" TextWrapping="Wrap" Margin="5"></TextBlock>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
             </ScrollViewer>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

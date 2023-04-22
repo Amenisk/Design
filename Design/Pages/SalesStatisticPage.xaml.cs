@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketplaceKazonberriesExpress.Core.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace Design.Pages
         public SalesStatisticPage()
         {
             InitializeComponent();
+            tbSaleSum.Text = Database.GetEarningSeller(CurrentUser.User._id).Balance.ToString();
+            tbSoldProductsCount.Text = Database.GetSoldProductsCount(CurrentUser.User._id).ToString();
+            tbUnsoldProductList.Text = Database.GetUnsoldProductsCount(CurrentUser.User._id).ToString();
+        }
+
+        private void GoToUnsoldProductList(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductListPage());
+        }
+
+        private void GoToSoldProducts(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SoldProductsList());
         }
     }
 }

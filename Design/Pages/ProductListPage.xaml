@@ -8,84 +8,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductListPage" Background="White">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="12*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="\Images\logo.png" Height="40" Margin="10"></Image>
-                <TextBlock FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">KazonBerries Express</TextBlock>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Войти" Margin="5"></Button>
-            <Button Grid.Column="2" Content="Корзина" Margin="5"></Button>
-        </Grid>
         <Grid Grid.Row="1">
             <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="180">Название товара</TextBlock>
-                        <TextBlock Width="180">Количество товаров</TextBlock>
-                        <TextBlock Width="180">Стоимость товаров</TextBlock>
+                        <TextBlock Width="240">Название товара</TextBlock>
+                        <TextBlock Width="240" Margin="5 0 0 0">Количество товаров</TextBlock>
+                        <TextBlock Width="240" Margin="5 0 0 0">Стоимость товара</TextBlock>
                     </StackPanel>
-                    <ListView >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Рюкзак универсальный</TextBlock>
-                            <TextBlock Width="180">3</TextBlock>
-                            <TextBlock Width="180">7800</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Смартфон Redmi 9a</TextBlock>
-                            <TextBlock Width="180">5</TextBlock>
-                            <TextBlock Width="180">25700</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Умные часы Apple Watch</TextBlock>
-                            <TextBlock Width="180">1</TextBlock>
-                            <TextBlock Width="180">25000</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Зонт черный</TextBlock>
-                            <TextBlock Width="180">9</TextBlock>
-                            <TextBlock Width="180">12000</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Расческа</TextBlock>
-                            <TextBlock Width="180">25</TextBlock>
-                            <TextBlock Width="180">750</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="180">Коврики для мыши</TextBlock>
-                            <TextBlock Width="180">7</TextBlock>
-                            <TextBlock Width="180">890</TextBlock>
-                            <Button Width="170" Height="30" Margin="5" Content="Страница товара"></Button>
-                        </StackPanel>
+                    <ListView x:Name="lvProducts" MouseDoubleClick="GoToProductPage">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}"  Width="240" TextWrapping="Wrap" ></TextBlock>
+                                    <TextBlock Text="{Binding Count}" Width="240" Margin="5 0 0 0"></TextBlock>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="240" Margin="5 0 0 0">
+                                        <TextBlock Text="{Binding Price}" ></TextBlock>
+                                        <TextBlock Margin="5 0 0 0"> р.</TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
             </ScrollViewer>
-        </Grid>
-        <Grid Grid.Row="2" Background="Blue">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Margin="2" Content="Назад"></Button>
         </Grid>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketplaceKazonberriesExpress.Core.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Design.Pages
         public ListOfOrders()
         {
             InitializeComponent();
+            lvOrders.ItemsSource = Database.GetPurchacesListByBuyer(CurrentUser.User);
+        }
+
+        private void GoToOrderPage(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new OrderPage(((Purchase) lvOrders.SelectedItem).OrderNumber));
         }
     }
 }
