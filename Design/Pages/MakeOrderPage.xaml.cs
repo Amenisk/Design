@@ -33,7 +33,10 @@ namespace Design.Pages
                 {
                     if (cbIssuePoints.SelectedItem != null)
                     {
-                        MakePurchase();
+                        if(!MakePurchase())
+                        {
+                            return;
+                        }   
                         var purchase = new Purchase(Database.GetLastNumberOfPurchase() + 1, CurrentUser.Basket, CurrentUser.User, ((TextBlock)cbIssuePoints.SelectedItem).Text.ToString());
                         Database.AddPurchase(purchase);
                         CurrentUser.Basket.Clear();
@@ -61,17 +64,15 @@ namespace Design.Pages
             }
         }
 
-        public static void MakePurchase()
-        {
-           
+        public static bool MakePurchase()
+        {         
             foreach (var p in CurrentUser.Basket)
             {
-
                 if(!Database.CheckCountProduct(p._id))
                 {
                     MessageBox.Show($"Товар {p.Name} закончился! Уберите его из заказа!", "Ошибка!",
                 MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    return false;
                 }
             }
 
@@ -79,7 +80,8 @@ namespace Design.Pages
             {
                 Database.ChangeCountProduct(p._id);
             }
-            
+
+            return true;
         }
 
         private void CountCostOrder()

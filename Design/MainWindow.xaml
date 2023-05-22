@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Design"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="KazonBerries Express" Height="550" Width="800" Icon="/logo.png">
+        Title="KazonBerries Express" Height="550" Width="800" Icon="/Images/logo.png">
 
     <Grid>
         <Grid.RowDefinitions>
